@@ -27,7 +27,7 @@ function tellMe(joke) {
 // Get Jokes from Joke API
 async function getJokes() {
   let joke = '';
-  const apiUrl = 'https://v2.jokeapi.dev/joke/Any'
+  const apiUrl = 'https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist'
   try {
     const response = await fetch(apiUrl)
     const data = await response.json();
@@ -45,7 +45,7 @@ async function getJokes() {
     console.log('whoops', error)
   }
 }
-console.log(VoiceRSS)
+
 // Event Listener
 button.addEventListener('click', getJokes)
 audioElement.addEventListener('ended', toggleButton)
